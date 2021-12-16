@@ -1,3 +1,4 @@
+##it is a script filtering the interproscan result for pfam and panther result. Users can download the script by themselves and modified it.
 import argparse
 from collections import Counter
 parser = argparse.ArgumentParser(description="filter the interproscan output.")
