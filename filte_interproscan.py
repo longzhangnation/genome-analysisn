@@ -2,13 +2,12 @@ import argparse
 from collections import Counter
 parser = argparse.ArgumentParser(description="filter the interproscan output.")
 parser.add_argument("--inter_result",help="interproscan result input")
-#parser.add_argument("--filter_result",help="fitered interproscan output")
 args=parser.parse_args()
 file_in=args.inter_result
-#file_out=args.filter_result
 print("            "+"<<"+str(file_in)+"  result"+">>")
-tx="Acyr_pis,Arma_nasa,Dap_pul,ESIN,Hamer,Macro_nip,Pe_van,Pmonodon,Por_tri,Pvir,Scyl,Str_mar,Zoo_nev".split(",")
-def output(list,list2):
+species="Acyr_pis,Arma_nasa,Dap_pul,ESIN,Hamer,Macro_nip,Pe_van,Pmonodon,Por_tri,Pvir,Scyl,Str_mar,Zoo_nev".split(",")##物种名称可根据自己的物种替换（you can replace your own species name)
+
+def output(list,list2):##output the number of each species, the number of each annotation, the result is a dictioary.
     tt=long(list)
     print(counter(list2))
     for i in list:
@@ -17,7 +16,7 @@ def output(list,list2):
         for x  in ta:
             spe_num.append(x.split("|")[0])
         num_spe=counter(spe_num)
-        for t in tx:
+        for t in species:
             if t not in counter(spe_num).keys():
                 num_spe[t]=0
         if len(ta) == tt:
